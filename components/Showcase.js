@@ -1,4 +1,4 @@
-import styles from '@/styles/Showcase.module.css'
+import styles from '@/styles/Showcase.module.css';
 
 export default function Showcase() {
   return (
@@ -6,5 +6,5 @@ export default function Showcase() {
       <h1>Welcome to the Party!</h1>
       <h2>find the hottest DJ Events</h2>
     </div>
-  )
+  );
 }
