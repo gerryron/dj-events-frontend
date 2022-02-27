@@ -3,11 +3,12 @@ import Link from 'next/link';
 import styles from '@/styles/EventItem.module.css';
 
 export default function EventItem({ evt }) {
+  const imageData = evt.attributes.image.data;
   return (
     <div className={styles.event}>
       <div className={styles.img}>
         <Image
-          src={evt.image ? evt.image : '/images/event-default.png'}
+          src={imageData ? imageData.attributes.formats.thumbnail.url : '/images/event-default.png'}
           width={170}
           height={100}
         />
@@ -15,18 +16,18 @@ export default function EventItem({ evt }) {
 
       <div className={styles.info}>
         <span>
-          {evt.date}
+          {new Date(evt.attributes.date).toLocaleDateString('en-US')}
           {' '}
           at
           {' '}
-          {evt.time}
+          {evt.attributes.time}
         </span>
         <h3>
-          {evt.name}
+          {evt.attributes.name}
         </h3>
       </div>
       <div className={styles.link}>
-        <Link href={`/events/${evt.slug}`}>
+        <Link href={`/events/${evt.attributes.slug}`}>
           <a className="btn">Details</a>
         </Link>
       </div>
