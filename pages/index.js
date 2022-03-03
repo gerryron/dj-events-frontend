@@ -14,9 +14,9 @@ export default function Home({ events }) {
         <EventItem key={evt.id} evt={evt} />
       ))}
 
-      {events.length > 0 && (
+      {data.length > 0 && (
         <Link href="/events">
-          <a className="btn-secondary">View AllEvents</a>
+          <a className="btn-secondary">View All Events</a>
         </Link>
       )}
     </Layout>
