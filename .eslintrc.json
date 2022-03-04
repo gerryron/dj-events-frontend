@@ -47,6 +47,8 @@
             "message": "Do not commit fdescribe. Use describe instead."
         }
       ],
-      "no-alert":"off"
+      "no-alert":"off",
+      "react/jsx-no-constructed-context-values": "off",
+      "no-use-before-define": "off"
     }
 }
