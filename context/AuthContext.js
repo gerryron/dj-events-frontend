@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { API_URL, NEXT_URL } from '@/config/index';
+import { NEXT_URL } from '@/config/index';
 
 const AuthContext = createContext();
 
@@ -48,6 +48,7 @@ export function AuthProvider({ children }) {
     const data = await res.json();
     if (res.ok) {
       setUser(data.user);
+      router.push('/account/dashboard');
     } else {
       setError(data.message);
       //* set default instance
@@ -69,12 +70,11 @@ export function AuthProvider({ children }) {
 
   //* Check if user is logged in
   const checkUserLoggedIn = async () => {
-    const res = await fetch(`${API_URL}/api/user`);
+    const res = await fetch(`${NEXT_URL}/api/user`);
     const data = await res.json();
 
     if (res.ok) {
       setUser(data.user);
-      router.push('/account/dashboard');
     } else {
       setUser(null);
     }
