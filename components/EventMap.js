@@ -20,10 +20,10 @@ export default function EventMap({ evt }) {
     // Get latitude & longitude from address.
     Geocode.fromAddress(evt.attributes.address).then(
       (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLat(lat);
-        setLng(lng);
-        setViewport({ ...viewport, latitude: lat, longitude: lng });
+        const { lat: latitude, lng: longitude } = response.results[0].geometry.location;
+        setLat(latitude);
+        setLng(longitude);
+        setViewport({ ...viewport, latitude, longitude });
         setLoading(false);
       },
       (error) => {
